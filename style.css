@@ -1,0 +1,418 @@
+/* Reset & Variables */
+:root {
+    --bg-main: #0B0F19; /* Deep dark blue */
+    --bg-card: #151A2A; 
+    --bg-card-hover: #1D2338;
+    
+    --text-primary: #FFFFFF;
+    --text-secondary: #94A3B8;
+    
+    --accent-color: #3B82F6; /* Bright blue */
+    --accent-hover: #2563EB;
+    
+    --border-color: #2F374A;
+    --border-radius: 12px;
+    --transition-speed: 0.4s; /* Smoothed out transition */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+    position: relative; /* for top nav */
+}
+
+/* Top Navigation */
+.top-nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.insta-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.insta-text {
+    font-family: 'Oleo Script', cursive;
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    margin-top: 3px;
+    letter-spacing: 0.5px;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.iitk-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+/* Container */
+.app-container {
+    width: 100%;
+    max-width: 1100px; /* Widened to fit 3 columns */
+    margin-top: 4.5rem; /* Give space for top nav */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.global-counter {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1.2rem;
+    border-radius: 20px;
+    display: inline-block;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    color: #ec4899;
+    border: 1px solid rgba(236, 72, 153, 0.4);
+    box-shadow: 0 0 15px rgba(236, 72, 153, 0.1);
+}
+
+/* Form Section */
+.add-feature-section {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+.add-feature-title {
+    font-size: 1.6rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(to right, #a855f7, #ec4899);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0px 4px 15px rgba(236, 72, 153, 0.3); /* Base glow */
+    transition: all var(--transition-speed);
+}
+
+.add-feature-title:hover {
+    text-shadow: 0px 4px 25px rgba(236, 72, 153, 0.8); /* Glow intensifies on hover */
+}
+
+.feature-form {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.feature-form input {
+    flex-grow: 1;
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 1rem 1.2rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.feature-form input::placeholder {
+    color: var(--text-secondary);
+}
+
+.feature-form input:focus {
+    border-color: #a855f7; /* Matching gradient color */
+    box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.2);
+}
+
+.feature-form .submit-btn {
+    background: linear-gradient(to right, #a855f7, #ec4899);
+    color: #fff;
+    border: none;
+    padding: 0 1.5rem;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.feature-form .submit-btn:hover {
+    box-shadow: 0 4px 15px rgba(236, 72, 153, 0.5);
+    transform: translateY(-2px);
+}
+
+.feature-form .submit-btn:active {
+    transform: scale(0.97);
+}
+
+/* Features List */
+.feature-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;       /* Allows wrapping into multiple rows */
+    justify-content: center; /* Centers the 2 items on the bottom line */
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.feature-item {
+    flex: 1 1 calc(33.333% - 1.5rem); /* Allows exactly 3 items per row, subtracting gap */
+    min-width: 280px;            /* Minimum responsive width */
+    max-width: 350px;            /* Prevents cards from getting too stretched on bottom row */
+    background-color: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform var(--transition-speed), background-color var(--transition-speed), box-shadow var(--transition-speed), border-color var(--transition-speed);
+    animation: fadeIn 0.4s ease forwards;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* Denser, smaller radius */
+    background: radial-gradient(
+        150px circle at var(--mouse-x, 0) var(--mouse-y, 0),
+        rgba(236, 72, 153, 0.35),
+        transparent 80%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Base Hover Circle Wrapper for specific buttons (Authentiction) */
+.hover-circle-wrapper:hover {
+    box-shadow: 0 0 25px rgba(236, 72, 153, 0.25) !important;
+    transform: translateY(-2px);
+}
+.hover-circle-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(150px circle at var(--mouse-x, 0) var(--mouse-y, 0), rgba(236, 72, 153, 0.35), transparent 80%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+.hover-circle-wrapper:hover::before {
+    opacity: 1;
+}
+
+.feature-item:hover::before {
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.feature-item:hover {
+    background-color: var(--bg-card-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(236, 72, 153, 0.15); /* Soft pinkish shadow on hover */
+    border-color: #ec4899; /* Subtle border glow on hover */
+}
+
+/* Delete button for user created features */
+.delete-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+    transition: color 0.2s, transform 0.2s;
+}
+.delete-btn:hover {
+    color: #ef4444;
+    transform: scale(1.1);
+}
+
+.feature-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-right: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+/* Text glow gradient effect wherever hovered on the card */
+.feature-item:hover .feature-title {
+    color: #ec4899; /* shifts towards pinkish */
+    /* Mixed color shadow creates the gradient glow effect smoothly */
+    text-shadow: -2px 0 10px rgba(168, 85, 247, 0.6), 2px 0 10px rgba(236, 72, 153, 0.6); 
+}
+
+.feature-status {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 500;
+}
+
+.vote-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--bg-main);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    transition: all var(--transition-speed);
+    user-select: none;
+    min-width: 60px;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+}
+
+.vote-control:hover {
+    border-color: #a855f7;
+    background-color: rgba(168, 85, 247, 0.05); /* Purple tint on hover */
+    box-shadow: 0 0 10px rgba(168, 85, 247, 0.3);
+}
+
+.vote-control:active {
+    transform: scale(0.95);
+}
+
+/* SVG Up Arrow */
+.vote-arrow {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: var(--text-secondary);
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    margin-bottom: 0.2rem;
+    transition: stroke var(--transition-speed);
+}
+
+.vote-count {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-primary);
+    transition: color var(--transition-speed), text-shadow var(--transition-speed);
+}
+
+/* Active state for when the specific user has upvoted */
+.vote-control.user-voted .vote-arrow {
+    stroke: #ec4899; /* Match our pink accent */
+}
+.vote-control.user-voted .vote-count {
+    color: #ec4899;
+    text-shadow: 0 0 10px rgba(236, 72, 153, 0.4);
+}
+.vote-control.user-voted {
+    border-color: #ec4899;
+    background-color: rgba(236, 72, 153, 0.05); /* Match tint */
+}
+
+/* Responsiveness */
+@media (max-width: 850px) {
+    .feature-item {
+        flex: 1 1 calc(50% - 1.5rem); /* Drops to 2 columns on medium screens */
+    }
+}
+
+@media (max-width: 550px) {
+    .nav-right span {
+        display: none; /* Hide text on mobile, keep logo */
+    }
+    
+    .feature-item {
+        flex: 1 1 100%; /* Drops to 1 column on small screens */
+    }
+    
+    header h2 {
+        font-size: 2rem;
+    }
+    
+    .feature-form {
+        flex-direction: column;
+    }
+    
+    .feature-form .submit-btn {
+        padding: 1rem;
+    }
+}

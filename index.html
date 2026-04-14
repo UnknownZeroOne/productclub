@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Feature Voting Board</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Oleo+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-left">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/9/95/Instagram_logo_2022.svg" alt="Insta Icon" class="insta-icon">
+            <span class="insta-text">Instagram</span>
+        </div>
+        <div class="nav-right">
+            <button id="logout-btn" style="display: none; background: transparent; border: 1px solid #a855f7; color: #a855f7; padding: 0.5rem 1rem; border-radius: 6px; cursor: pointer; font-weight: 600; transition: all 0.2s;">Reset / Log out</button>
+            <span class="club-title" style="margin-left: 1rem;">Product Club by IIT Kanpur</span>
+            <img src="download.jpg" alt="IITK Logo" class="iitk-logo">
+        </div>
+    </nav>
+
+    <div class="app-container">
+        <header>
+            <h2>Feature Requests</h2>
+            <p>Help us prioritize what to build next. Upvote your favorites or submit your own!</p>
+            <div class="global-counter">Over 2.4 Million People Voted</div>
+        </header>
+
+        <!-- Shown before login -->
+        <section id="login-cta-section" class="add-feature-section" style="margin-top: 2rem;">
+            <div onclick="window.location.href='login.html'" class="hover-circle-wrapper" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(236, 72, 153, 0.4); box-shadow: 0 0 15px rgba(236, 72, 153, 0.1); border-radius: 50px; display: inline-block; padding: 1.5rem 3rem; position: relative; overflow: hidden; cursor: pointer; transition: all 0.3s;">
+                <span style="color: #ec4899; font-size: 1.2rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; position: relative; z-index: 1;">Securely Authenticate to Cast Your Vote</span>
+            </div>
+        </section>
+
+        <!-- Shown after login -->
+        <div id="board-content" style="display: none; width: 100%; display: flex; flex-direction: column; align-items: center;">
+            <section class="add-feature-section">
+                <h3 class="add-feature-title">Add Features</h3>
+                <form id="add-feature-form" class="feature-form">
+                    <input 
+                        type="text" 
+                        id="new-feature-input" 
+                        placeholder="Enter a new feature idea..." 
+                        autocomplete="off" 
+                        required 
+                    />
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </section>
+
+            <main style="width: 100%;">
+                <ul id="feature-list" class="feature-list">
+                    <!-- Features will be dynamically injected here using script.js -->
+                </ul>
+            </main>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
